@@ -15,11 +15,21 @@ html{
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+.fundo{
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  clip-path: inset(0 0 0 0);
 }
 section{
+  background-color: white;
   width: 70vh;
   height: 80vh;
-  border: solid brown 6px;
+  border: solid #460303 6px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -57,11 +67,22 @@ form div input[type="text"], form div input[type="password"]{
   width: 90%;
   height: 50%;
   font-size: 20px;
+  border-radius: 5px;
+  border:#460303 solid 1px ;
 }
 form div input[type="submit"]{
   width: 30%;
   height: 50%;
   font-size: 20px;
+  border-radius: 5px;
+  border:#460303 solid 3px ;
+  cursor: pointer;
+  transition: 1s;
+}
+form div input[type="submit"]:hover{
+  background-color: #460303;
+  color: #ffffff;
+  transition: 1s;
 }
 form div label{
   font-size: 20px;

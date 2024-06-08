@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <img class="fundo" src="images/fundo.jpg" alt="">
     <section >
         <img src="images/LOGOTIPO.png" alt="">
     <?php
