@@ -11,8 +11,8 @@
 
     <form action="/login" method="post">
         <div>
-            <label for="usuario">Usuário:</label>
-            <input type="text" id="usuario" name="usuario" required>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
         </div>
         <div>
             <label for="senha">Senha:</label>

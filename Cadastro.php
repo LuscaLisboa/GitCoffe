@@ -9,31 +9,24 @@
 
 <body>
 
-    <form action="/submit" method="post">
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-        </div>
+    <?php
+    //GerenciadorUsuarios gerenciadorUsu
 
-        <div>
-            <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" required>
-        </div>
+    $nome = $_POST['nome'] ?? null;
+    $cpf = $_POST['cpf'] ?? null;
+    $senha = $_POST['senha'] ?? null;
 
-        <div>
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
-        </div>
+    require_once "CadastroForm.php";
 
-        <div>
-            <label for="confirmar_senha">Confirmar Senha:</label>
-            <input type="password" id="confirmar_senha" name="confirmar_senha" required>
-        </div>
+    if (is_null($nome) && is_null($senha)) {
+        echo "Criar usuario...";
+    } else {
 
-        <div>
-            <button type="submit">Enviar</button>
-        </div>
-    </form>
+        require_once "GerenciadorUsu.php";
+        // cadastrarUsuario($cpf, $nome, $senha);
+    }
+
+    ?>
 
 </body>
 
