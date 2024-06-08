@@ -26,7 +26,7 @@
             <input type="password" id="senha" name="senha" required>
         </div>
         <div class="enviar">
-        <p><a href="">Criar conta</a></p>
+        <p><a href="Cadastro.php">Criar conta</a></p>
         
             <input type="submit"></input>
         </div>
