@@ -1,4 +1,5 @@
 <form action="/submit" method="post">
+    <h1>CADASTRO</h1>
     <div>
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
@@ -19,7 +20,7 @@
         <input type="password" id="confirmar_senha" name="confirmar_senha" required>
     </div>
 
-    <div>
-        <button type="submit">Enviar</button>
+    <div class="enviar">
+        <input type="submit" ></input>
     </div>
 </form>
