@@ -1,4 +1,4 @@
-<!-- <?php include('db.php'); ?> -->
+<?php include('../db.php'); ?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +32,7 @@
         $image = $_FILES['image']['name'];
         $target = "../images/".basename($image);
 
-        $sql = "INSERT INTO products (name, description, price, image) VALUES ('$name', '$description', '$price', '$image')";
+        $sql = "INSERT INTO produtos (name, description, price, image) VALUES ('$name', '$description', '$price', '$image')";
         if ($conn->query($sql) === TRUE) {
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
                 echo "Produto adicionado com sucesso";
