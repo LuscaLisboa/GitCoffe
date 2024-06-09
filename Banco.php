@@ -5,7 +5,7 @@
 
 // --------------------INSERIR NO BANCO DE DADOS--------------------------------------------
 
-    function insertInto(string $into, string $value, bool $debug=true) : void{
+    function insertInto(string $into, string $value, bool $debug=true) : void{ // [BISU] deligar debug
         global $banco;
 
         $q = "INSERT INTO $into VALUE $value";
@@ -17,16 +17,17 @@
         }
     }
 
+    // USUÀRIO
     function cadastrarUsuario(string $cpf, string $nome, string $senha) : void{
         $senha = password_hash($senha, PASSWORD_DEFAULT); // Criptografia ;)
-        insertInto("usuario(cpf, nome, senha)", "('$cpf', '$nome', '$senha')");
+        insertInto("usuarios(cpf, nome, senha)", "('$cpf', '$nome', '$senha')");
     }
 
     // [BISU] falta cadastroProduto
 
 // --------------------DELETAR NO BANCO DE DADOS--------------------------------------------
 
-    function deleteFrom(string $from, string $where, bool $debug=true) : void{
+    function deleteFrom(string $from, string $where, bool $debug=true) : void{ // [BISU] deligar debug
         global $banco;
 
         $q = "DELETE FROM $from WHERE $where";
@@ -38,15 +39,16 @@
         }
     }
 
+    // USUÀRIO
     function deletarUsuario($cpf){
-        deleteFrom("usuario", "cpf=$cpf");
+        deleteFrom("usuarios", "cpf=$cpf");
     }
 
     // [BISU] falta deletarProduto
 
 // --------------------ALTERAR NO BANCO DE DADOS--------------------------------------------
 
-    function updateWhere(string $update, string $set, string $where, bool $debug=true) : void{
+    function updateWhere(string $update, string $set, string $where, bool $debug=true) : void{ // [BISU] deligar debug
         global $banco;
 
         $q = "UPDATE $update SET $set WHERE $where";
@@ -58,16 +60,13 @@
         }
     }
 
+    // USUÀRIO
     function alterarUsuario($cpf, $novaSenha){ // Altera a senha somente
         $senha = password_hash($novaSenha, PASSWORD_DEFAULT); // Criptografia
 
-        updateWhere("usuario","$senha","cpf=$cpf");
+        updateWhere("usuarios","$senha","cpf=$cpf");
     }
 
     // [BISU] falta alterarProduto
-
-// --------------------CADASTRO DO ADMINISTRADOR--------------------------------------------
-    cadastrarUsuario("00000000000","adm","senha");
-
 ?>
 </pre>
