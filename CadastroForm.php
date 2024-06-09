@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form action="" method="post"> <!-- [BISU] colocar página de redirecionamento -->
     <h1>CADASTRO</h1>
     <div>
         <label for="nome">Nome:</label>
