@@ -16,24 +16,40 @@
     <section>
     <img src="images/LOGOTIPO.png" alt="">
         <h1>LOGIN</h1>
-    <form action="/login" method="post">
-        <div>
-            <label for="nome">Usuario:</label>
-            <input type="text" id="nome" name="nome" required>
-        </div>
-        <div>
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
-        </div>
-        <div class="enviar">
-        <p><a href="Cadastro.php">Criar conta</a></p>
-        <label for="image"></label>
+    <?php
+    //require_once "Banco.php";
 
-          
-        </div>
+    /*
+        $nome = _SESSION['nome'] ?? null;
+        $senha = _SESSION['senha'] ?? null;
+    */
+    // [BISU] Remover depois da implementação do SESSION
+    $nome = $_POST['nome'] ?? null; 
+    $senha = $_POST['senha'] ?? null;
 
-        <p><a href="/esqueci_a_senha">Esqueci a senha</a></p>
-    </form>
+    if(is_null($nome) || is_null($senha)) require "LoginForm.php";
+    else{
+        // Lógica após a inserção dos dados
+
+        $q = "SELECT cpf, nome, senha FROM usuario WHERE nome='$nome'";
+
+        $busca = $banco->query($q);
+        echo print_r($busca);
+
+        if($busca->num_rows > 0){
+            $obj_usuario = $busca->fetch_object();
+            echo print_r($obj_usuario);
+
+            if(password_verify($senha, $obj_usuario->senha)){
+                // Lógica depois de login BEM SUCEDIDO
+            }
+            else echo "Senha incorreta.";
+            
+        }
+    }
+
+
+    ?>
     </section>
 </body>
 

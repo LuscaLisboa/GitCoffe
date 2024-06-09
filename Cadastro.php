@@ -16,7 +16,6 @@
     <section >
         <img src="images/LOGOTIPO.png" alt="">
     <?php
-    //GerenciadorUsuarios gerenciadorUsu
 
     $nome = $_POST['nome'] ?? null;
     $cpf = $_POST['cpf'] ?? null;
@@ -28,8 +27,8 @@
         echo "Criar usuario...";
     } else {
 
-        require_once "GerenciadorUsu.php";
-        // cadastrarUsuario($cpf, $nome, $senha);
+        require_once "Banco.php";
+        cadastrarUsuario($cpf, $nome, $senha);
     }
 
     ?>
