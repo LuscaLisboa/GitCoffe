@@ -20,13 +20,12 @@
     $nome = $_POST['nome'] ?? null;
     $cpf = $_POST['cpf'] ?? null;
     $senha = $_POST['senha'] ?? null;
+    $confirmar_senha = $_POST['confirmar_senha'] ?? null;
 
     require_once "CadastroForm.php";
 
-    if (is_null($nome) && is_null($senha)) {
-        echo "Criar usuario...";
-    } else {
-
+    if (is_null($nome) && is_null($cpf) && is_null($senha) && is_null($confirmar_senha)) echo "Criar usuario...";
+    elseif($senha == $confirmar_senha){
         require_once "Banco.php";
         cadastrarUsuario($cpf, $nome, $senha);
     }
