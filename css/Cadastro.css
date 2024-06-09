@@ -26,7 +26,7 @@ html{
   clip-path: inset(0 0 0 0);
 }
 section{
-  background-color: white;
+  background-color: #ffffff;
   width: 70vh;
   height: 80vh;
   border: solid #460303 6px;
