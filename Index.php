@@ -9,9 +9,9 @@
 
 <body>
     <h1>Index</h1>
-    <a href="Telas/Cadastro.php">Cadastro</a>
+    <a href="Cadastro.php">Cadastro</a>
     <br>
-    <a href="Telas/Login.php">login</a>
+    <a href="Login.php">login</a>
 </body>
 
 </html>

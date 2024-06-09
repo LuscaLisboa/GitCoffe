@@ -5,10 +5,8 @@ class GerenciadorUsu
 
     public function cadastrarUsuario($cpf, $nome, $senha)
     {
-        if ($this->existeUsuario($cpf)) {
-            echo "Erro: CPF já cadastrado.";
-            return false;
-        }
+        if ($this->verificarAdm($cpf, $nome)) return false;
+        elseif ($this->existeUsuario($cpf)) return false;
 
         $novoUsuario = new Usuario($cpf, $nome, $senha);
 
@@ -25,5 +23,10 @@ class GerenciadorUsu
     public function listarUsuarios()
     {
         return $this->usuarios;
+    }
+
+    public function verificarAdm($cpf, $nome){
+        if ($cpf == "00000000000" || ctype_lower($nome) == "adm") return true;
+        else return false;
     }
 }
