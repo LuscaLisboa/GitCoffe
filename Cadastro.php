@@ -7,8 +7,8 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="css/Cadastro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,7 +16,6 @@
     <section >
         <img src="imagens/LOGOTIPO.png" alt="">
     <?php
-    //GerenciadorUsuarios gerenciadorUsu
 
     $nome = $_POST['nome'] ?? null;
     $cpf = $_POST['cpf'] ?? null;
@@ -28,8 +27,8 @@
         echo "Criar usuario...";
     } else {
 
-        require_once "GerenciadorUsu.php";
-        // cadastrarUsuario($cpf, $nome, $senha);
+        require_once "Banco.php";
+        cadastrarUsuario($cpf, $nome, $senha);
     }
 
     ?>

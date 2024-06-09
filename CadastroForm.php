@@ -1,4 +1,4 @@
-<form action="/submit" method="post">
+<form action="" method="post">
     <h1>CADASTRO</h1>
     <div>
         <label for="nome">Nome:</label>
@@ -21,6 +21,6 @@
     </div>
 
     <div class="enviar">
-        <input type="submit" ></input>
+        <input type="submit" value="Enviar"></input>
     </div>
 </form>
