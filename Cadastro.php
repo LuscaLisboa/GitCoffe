@@ -16,23 +16,19 @@
     <section >
         <img src="images/LOGOTIPO.png" alt="">
     <?php
-    require_once "banco.php";
 
     $nome = $_POST['nome'] ?? null;
     $cpf = $_POST['cpf'] ?? null;
     $senha = $_POST['senha'] ?? null;
 
-    if(is_null($nome) || is_null($senha)) require_once "CadastroForm.php";
-    else{
-        // Lógica do site
-    }
+    require_once "CadastroForm.php";
 
     if (is_null($nome) && is_null($senha)) {
         echo "Criar usuario...";
     } else {
 
-        require_once "GerenciadorUsu.php";
-        // cadastrarUsuario($cpf, $nome, $senha);
+        require_once "Banco.php";
+        cadastrarUsuario($cpf, $nome, $senha);
     }
 
     ?>
