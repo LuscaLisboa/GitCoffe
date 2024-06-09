@@ -84,15 +84,14 @@ form div input[type="submit"]{
   border:#460303 solid 3px ;
   cursor: pointer;
   transition: 1s;
-  m
 }
-form div input[type="submit"]:hover{
+div input[type="submit"]:hover{
   background-color: #460303;
   color: #ffffff;
   transition: 1s;
 }
 form div label{
-  font-size: 20px;
+  font-size: 21px;
 }
 p a{
   font-size: 20px;

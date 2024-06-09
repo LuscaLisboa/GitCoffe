@@ -26,9 +26,10 @@
             <input type="password" id="senha" name="senha" required>
         </div>
         <div class="enviar">
-        <p><a href="">Criar conta</a></p>
-        
-            <input type="submit"></input>
+        <p><a href="Cadastro.php">Criar conta</a></p>
+        <label for="image"></label>
+
+          
         </div>
 
         <p><a href="/esqueci_a_senha">Esqueci a senha</a></p>
