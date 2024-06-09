@@ -1,4 +1,4 @@
-<form action="/login" method="post">
+<form action="" method="post"> <!-- [BISU] Colocar página de destino -->
         <div>
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
@@ -8,11 +8,9 @@
             <input type="password" id="senha" name="senha" required>
         </div>
         <div class="enviar">
-        <p><a href="Cadastro.php">Criar conta</a></p>
-        <label for="image"></label>
-
-          
+            <p><a href="Cadastro.php">Criar conta</a></p>
+            <label for="image"></label>
         </div>
 
-        <p><a href="/esqueci_a_senha">Esqueci a senha</a></p>
+        <p><a href="">Esqueci a senha</a></p> <!-- [BISU] Colocar página de destino -->
 </form>
