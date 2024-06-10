@@ -12,6 +12,9 @@
     <a href="Cadastro.php">Cadastro</a>
     <br>
     <a href="Login.php">login</a>
+    <br>
+    <a href="adm/Adm.php">Adm</a>
+    <br>
 </body>
 
 </html>

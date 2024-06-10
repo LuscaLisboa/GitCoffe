@@ -1,15 +1,18 @@
-<?php include('../db.php'); ?> 
 <!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/EditarProduto.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
     <title>Editar Produto</title>
 </head>
+
 <body>
     <h1>Editar Produto</h1>
     <?php
@@ -35,21 +38,17 @@
         $description = $_POST['description'];
         $price = $_POST['price'];
         $image = $_FILES['image']['name'];
-        $target = "../images/".basename($image);
+        $target = "../imagens/" . basename($image);
 
-        if ($image) {
-            $sql = "UPDATE produtos SET name='$name', description='$description', price='$price', image='$image' WHERE id=$id";
-            move_uploaded_file($_FILES['image']['tmp_name'], $target);
-        } else {
-            $sql = "UPDATE produtos SET name='$name', description='$description', price='$price' WHERE id=$id";
-        }
+        require "../Banco.php";
 
-        if ($conn->query($sql) === TRUE) {
+        if (editarProduto($id, $name, $description, $price, $image, $target)) {
             echo "Produto atualizado com sucesso";
         } else {
-            echo "Erro: " . $sql . "<br>" . $conn->error;
+            echo "Erro: " . $q . "<br>" . $banco->error;
         }
     }
     ?>
 </body>
+
 </html>
