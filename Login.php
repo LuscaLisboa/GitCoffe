@@ -12,9 +12,9 @@
 </head>
 
 <body>
-    <img class="fundo" src="images/fundo.jpg" alt="">
+    <img class="fundo" src="imagens/fundo.jpg" alt="">
     <section>
-    <img src="images/LOGOTIPO.png" alt="">
+    <img src="imagens/LOGOTIPO.png" alt="">
         <h1>LOGIN</h1>
     <?php
     //require_once "Banco.php";
