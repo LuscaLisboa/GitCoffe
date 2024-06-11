@@ -1,9 +1,11 @@
-<?php include('db.php'); ?>
+<?php include('Banco.php'); ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Realizar Pedido</title>
 </head>
+
 <body>
     <h1>Realizar Pedido</h1>
     <?php
@@ -32,4 +34,5 @@
     }
     ?>
 </body>
+
 </html>
