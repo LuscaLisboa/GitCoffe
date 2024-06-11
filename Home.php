@@ -1,4 +1,3 @@
-<?php include('db.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +17,10 @@
     <h1>Produtos Disponíveis</h1>
     <div class="container">
         <?php
-        $result = $conn->query("SELECT * FROM produtos");
-        while ($row = $result->fetch_assoc()) {
+
+        require_once "Banco.php";
+        $resp = $banco->query("SELECT * FROM produtos");
+        while ($row = $resp->fetch_assoc()) {
             echo "<div class='PedidoBox'>";
             echo "<img src='imagens/" . $row['image'] . "' alt='" . $row['name'] . "'>";
             echo "<h2>" . $row['name'] . "</h2>";

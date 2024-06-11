@@ -26,25 +26,35 @@
         $senha = _SESSION['senha'] ?? null;
     */
         // [BISU] Remover depois da implementação do SESSION
-        $nome = $_POST['nome'] ?? null;
-        $senha = $_POST['senha'] ?? null;
+        session_start();
 
-        if (is_null($nome) || is_null($senha)) require "LoginForm.php";
-        else {
-            // Lógica após a inserção dos dados
+        if (isset($_SESSION['nome'])) {
+            header("Location: Home.php");
+            exit;
+        } else {
+            require "LoginForm.php";
 
-            $q = "SELECT cpf, nome, senha FROM usuario WHERE nome='$nome'";
+            if (isset($_POST['nome']) && isset($_POST['senha'])) {
+                $nome = $_POST['nome'];
+                $senha = $_POST['senha'];
 
-            $busca = $banco->query($q);
-            echo print_r($busca);
+                $q = "SELECT cpf, nome, senha FROM usuario WHERE nome='$nome'";
 
-            if ($busca->num_rows > 0) {
-                $obj_usuario = $busca->fetch_object();
-                echo print_r($obj_usuario);
+                $busca = $banco->query($q);
+                echo print_r($busca);
 
-                if (password_verify($senha, $obj_usuario->senha)) {
-                    // Lógica depois de login BEM SUCEDIDO
-                } else echo "Senha incorreta.";
+                if ($busca->num_rows > 0) {
+                    $obj_usuario = $busca->fetch_object();
+                    echo print_r($obj_usuario);
+
+                    if (password_verify($senha, $obj_usuario->senha)) {
+                        $_SESSION['nome'] = $obj_usuario->nome;
+                        $_SESSION['cpf'] = $obj_usuario->cpf;
+
+                        header("Location: Home.php");
+                        exit;
+                    } else echo "Senha incorreta.";
+                }
             }
         }
         ?>
