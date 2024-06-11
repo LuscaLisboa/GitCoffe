@@ -74,11 +74,15 @@ function updateWhere(string $update, string $set, string $where, bool $debug = t
 }
 
 // USUÀRIO
-function alterarSenhaUsuario($cpf, $novaSenha) // Altera a senha 
+function alterarSenhaUsuario(string $cpf, string $novaSenha) // Altera a senha 
 {
+    global $banco;
     $senha = password_hash($novaSenha, PASSWORD_DEFAULT); // Criptografia
 
-    updateWhere("usuarios", "$senha", "cpf=$cpf");
+    $q = "UPDATE usuarios SET senha = ? WHERE cpf = ?";
+    $stmt = $banco->prepare($q);
+    $stmt->bind_param("ss", $senhaCriptografada, $cpf);
+    $stmt->execute();
 }
 function alterarNomeUsuario($cpf, $novoNome) // Altera o nome 
 {

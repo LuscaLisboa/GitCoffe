@@ -37,18 +37,12 @@
 
                 if ($cpf === $obj_usuario->cpf) {
                     alterarSenhaUsuario($cpf, $senha);
+                    header("Location: Login.php");
                 }
             } else {
                 echo "<div class=\"erroAlterar\">Criar usuario...</div>";
             }
         }
-        /*DEBUG:
-        // echo print_r($busca);
-
-        // $obj = $busca->fetch_object();
-        echo print_r($obj);*/
-
-
         ?>
     </section>
 </body>
