@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja de Café</title>
     <link rel="stylesheet" href="css/Home.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,6 +20,10 @@
         <?php
 
         require_once "Banco.php";
+
+        require_once "Header.php";
+
+
         $resp = $banco->query("SELECT * FROM produtos");
         while ($row = $resp->fetch_assoc()) {
             echo "<div class='PedidoBox'>";

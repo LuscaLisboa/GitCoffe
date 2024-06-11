@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,14 +20,10 @@
         <img src="imagens/LOGOTIPO.png" alt="">
         <h1>LOGIN</h1>
         <?php
-        //require_once "Banco.php";
 
-        /*
-        $nome = _SESSION['nome'] ?? null;
-        $senha = _SESSION['senha'] ?? null;
-    */
-        // [BISU] Remover depois da implementação do SESSION
-        session_start();
+        require_once "Banco.php";
+
+        require_once "Header.php";
 
         if (isset($_SESSION['nome'])) {
             header("Location: Home.php");
