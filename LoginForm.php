@@ -10,6 +10,7 @@
     <div class="enviar">
         <p><a href="Cadastro.php">Criar conta</a></p>
         <label for="image"></label>
+        <input type="submit" value="Enviar"></input>
     </div>
 
     <p><a href="">Esqueci a senha</a></p> <!-- [BISU] Colocar página de destino -->
