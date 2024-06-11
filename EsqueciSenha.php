@@ -26,19 +26,23 @@
         require_once "EsqueciSenhaForm.php";
 
         if (is_null($cpf) && is_null($senha) && is_null($confirmar_senha)) {
-            echo "<div class=\"erroCadastro\">Criar usuario...</div>";
+            echo "<div class=\"erroAlterar\">Criar usuario...</div>";
         } elseif ($senha === $confirmar_senha) {
             require_once "Banco.php";
 
             $busca = $banco->query("SELECT * FROM usuarios WHERE cpf = '$cpf'");
+
+            if ($busca->num_rows > 0) {
+                $obj_usuario = $busca->fetch_object();
+
+                if ($cpf === $obj_usuario->cpf) {
+                    alterarSenhaUsuario($cpf, $senha);
+                    header("Location: Login.php");
+                }
+            } else {
+                echo "<div class=\"erroAlterar\">Criar usuario...</div>";
+            }
         }
-        /*DEBUG:
-        // echo print_r($busca);
-
-        // $obj = $busca->fetch_object();
-        echo print_r($obj);*/
-
-
         ?>
     </section>
 </body>

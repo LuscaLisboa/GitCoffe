@@ -1,4 +1,4 @@
-<form action="Home.php" method="post">
+<form action="" method="post">
     <div>
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
