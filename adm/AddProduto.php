@@ -1,6 +1,7 @@
-<?php include('../db.php'); ?>
+<?php include('../Banco.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -15,8 +16,9 @@
 </head>
 
 <body>
+
     <section>
-        <img src="../images/LOGOTIPO.png" alt="">
+        <img src="../imagens/LOGOTIPO.png" alt="">
         <h1>Adicionar Produto</h1>
         <form action="AddProduto.php" method="post" enctype="multipart/form-data">
             <input type="text" id="name" placeholder="Nome" name="name"><br><br>
