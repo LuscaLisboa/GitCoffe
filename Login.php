@@ -26,7 +26,7 @@
 
         require_once "Banco.php";
 
-        require_once "Header.php";
+        //require_once "Header.php";
 
         if (isset($_SESSION['nome'])) {
             header("Location: Home.php");

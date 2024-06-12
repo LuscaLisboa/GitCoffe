@@ -5,7 +5,7 @@ $banco = new mysqli("localhost:3307", "root", "", "gitcoffe");
 
 // --------------------INSERIR NO BANCO DE DADOS--------------------------------------------
 
-function insertInto(string $into, string $value, bool $debug = true): void
+function insertInto(string $into, string $value, bool $debug = false): void
 { //  deligar debug
     global $banco;
 
