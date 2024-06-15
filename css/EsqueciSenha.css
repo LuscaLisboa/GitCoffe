@@ -67,14 +67,14 @@ form div{
 }
 form div input[type="text"], form div input[type="password"]{
   height: 50%;
-  font-size: 20px;
+  font-size: 3vh;
   border-radius: 5px;
   border:#460303 solid 1px ;
 }
 form div input[type="submit"]{
   width: 30%;
   height: 50%;
-  font-size: 20px;
+  font-size: 2vh;
   border-radius: 5px;
   border:#460303 solid 3px ;
   cursor: pointer;
@@ -86,5 +86,5 @@ form div input[type="submit"]:hover{
   transition: 1s;
 }
 form div label{
-  font-size: 20px;
+  font-size: 3vh;
 }

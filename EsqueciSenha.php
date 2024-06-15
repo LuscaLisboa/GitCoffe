@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="css/Cadastro.css">
+    <link rel="stylesheet" href="css/EsqueciSenha.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -26,7 +26,7 @@
         require_once "EsqueciSenhaForm.php";
 
         if (is_null($cpf) && is_null($senha) && is_null($confirmar_senha)) {
-            echo "<div class=\"erroAlterar\">Criar usuario...</div>";
+            echo "<div class=\"erroAlterar\">Alterar senha</div>";
         } elseif ($senha === $confirmar_senha) {
             require_once "Banco.php";
 
