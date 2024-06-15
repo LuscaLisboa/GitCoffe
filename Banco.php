@@ -1,7 +1,7 @@
 <pre>
 <?php
 
-$banco = new mysqli("localhost:3307", "root", "", "gitcoffe");
+$banco = new mysqli("localhost:3306", "root", "", "gitcoffe");
 
 // --------------------INSERIR NO BANCO DE DADOS--------------------------------------------
 
