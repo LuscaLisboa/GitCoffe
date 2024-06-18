@@ -1,0 +1,83 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #4b2e2e;
+  color: #fff; 
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  color: #f5cda7; 
+}
+
+.EditProd {
+  background-color: #6b4f4f; 
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.EditProd label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #f5cda7; 
+}
+
+.EditProd input[type="text"],
+.EditProd textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f5cda7; 
+  color: #4b2e2e;
+  font-size: 1em;
+}
+
+.EditProd input[type="file"] {
+  margin-bottom: 20px;
+}
+
+.EditProd input[type="submit"] {
+  background-color: #d9a770; 
+  color: #4b2e2e; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.EditProd input[type="submit"]:hover {
+  background-color: #b08950; 
+}
+
+form[action="Adm.php"] {
+  margin-top: 20px;
+}
+
+form[action="Adm.php"] input[type="submit"] {
+  background-color: #f5cda7; 
+  color: #4b2e2e; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form[action="Adm.php"] input[type="submit"]:hover {
+  background-color: #d9a770; 
+}
