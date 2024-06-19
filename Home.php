@@ -19,21 +19,37 @@
     <div class="container">
         <?php
 
+        session_start();
+
         require_once "Banco.php";
 
         require_once "Header.php";
 
+        if(!isset($_SESSION['carrinho'])) $_SESSION['carrinho'] = array();
 
         $resp = $banco->query("SELECT * FROM produtos");
+
         while ($row = $resp->fetch_assoc()) {
             echo "<div class='PedidoBox'>";
             echo "<img src='imagens/" . $row['image'] . "' alt='" . $row['name'] . "'>";
             echo "<h2>" . $row['name'] . "</h2>";
             echo "<p>" . $row['description'] . "</p>";
             echo "<div class='preco'>R$ " . $row['price'] . "</div>";
-            echo "<div class='pedir'><a href='Pedido.php?id=" . $row['id'] . "'>Pedir</a></div>";
+
+            if (isset($_POST['pedir']) && $_POST['pedir'] == $row['id']) {
+                if(isset($_POST['qnt'])) $_SESSION['carrinho'][$_POST['pedir']]['qnt'] = $_POST['qnt'];
+                require_once "Pedido.php";
+            } else {
+                echo "<form method=\"POST\">
+                      <input type=\"hidden\" name=\"pedir\" value=\"" . $row['id'] . "\">
+                      <input type=\"submit\" value=\"Pedir\">
+                      </form>";
+            }
+
             echo "</div>";
         }
+
+        var_dump($_SESSION);
         ?>
     </div>
 </body>

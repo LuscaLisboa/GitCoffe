@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('db.php');
+require_once 'Banco.php';
 if (isset($_POST['finalize_order'])) {
     if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
         foreach ($_SESSION['cart'] as $item) {
