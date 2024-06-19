@@ -1,65 +1,51 @@
-<?php
-session_start();
-require_once 'Banco.php';
-if (isset($_POST['finalize_order'])) {
-    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-        foreach ($_SESSION['cart'] as $item) {
-            $product_id = $item['id'];
-            $quantity = $item['quantity'];
-            $sql = "INSERT INTO orders (product_id, quantity) VALUES ('$product_id', '$quantity')";
-
-            if (!$conn->query($sql)) {
-                echo "Erro: " . $sql . "<br>" . $conn->error;
-                exit();
-            }
-        }
-
-        unset($_SESSION['cart']);
-        echo "Pedido finalizado com sucesso!";
-    } else {
-        echo "Carrinho vazio!";
-    }
-    exit();
-}
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="css/Carrinho.css">
+    <link rel="stylesheet" href="css/Adm.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
 </head>
+
 <body>
     <h1>Carrinho de Compras</h1>
-    <?php if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])): ?>
-        <table border="1">
-            <tr>
-                <th>Produto</th>
-                <th>Preço</th>
-                <th>Quantidade</th>
-                <th>Total</th>
-            </tr>
-            <?php
+    <div class="container">
+        <?php
+        session_start();
+        require_once "Banco.php";
+        require_once "Header.php";
+
+        if (empty($_SESSION['carrinho'])) {
+            echo "<p>Seu carrinho está vazio.</p>";
+        } else {
             $total = 0;
-            foreach ($_SESSION['cart'] as $item):
-                $total += $item['price'] * $item['quantity'];
-            ?>
-            <tr>
-                <td><?php echo htmlspecialchars($item['name']); ?></td>
-                <td>R$ <?php echo htmlspecialchars($item['price']); ?></td>
-                <td><?php echo htmlspecialchars($item['quantity']); ?></td>
-                <td>R$ <?php echo htmlspecialchars($item['price'] * $item['quantity']); ?></td>
-            </tr>
-            <?php endforeach; ?>
-            <tr>
-                <td colspan="3">Total</td>
-                <td>R$ <?php echo $total; ?></td>
-            </tr>
-        </table>
-        <form action="Carrinho.php" method="post">
-            <input type="submit" name="finalize_order" value="Finalizar Pedido">
-        </form>
-    <?php else: ?>
-        <p>Seu carrinho está vazio!</p>
-    <?php endif; ?>
-    <a href="Home.php">Continuar Comprando</a>
+            echo "<table>";
+            echo "<tr><th>Produto</th><th>Quantidade</th><th>Preço Unitário</th><th>Subtotal</th></tr>";
+            foreach ($_SESSION['carrinho'] as $produto_id => $produto) {
+                $resp = $banco->query("SELECT * FROM produtos WHERE id = $produto_id");
+                if ($resp && $resp->num_rows > 0) {
+                    $row = $resp->fetch_assoc();
+                    $subtotal = $produto['qnt'] * $row['price'];
+                    $total += $subtotal;
+                    echo "<tr>";
+                    echo "<td><img src='imagens/" . $row['image'] . "' alt='" . $row['name'] . "'></td>";
+                    echo "<td>" . $row['name'] . "</td>";
+                    echo "<td>" . $produto['qnt'] . "</td>";
+                    echo "<td>R$ " . $row['price'] . "</td>";
+                    echo "<td>R$ " . number_format($subtotal, 2, ',', '.') . "</td>";
+                    echo "</tr>";
+                }
+            }
+            echo "</table>";
+            echo "<div class='total-carrinho'>";
+            echo "<h3>Total: R$ " . number_format($total, 2, ',', '.') . "</h3>";
+            echo "</div>";
+        }
+        ?>
+    </div>
 </body>
+
 </html>

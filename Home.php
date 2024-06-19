@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +12,10 @@
         href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
 </head>
-
 <body>
     <h1>Produtos Disponíveis</h1>
     <div class="container">
-        <?php
+    <?php
 
         session_start();
 
@@ -41,17 +39,18 @@
                 require_once "Pedido.php";
             } else {
                 echo "<form method=\"POST\">
-                      <input type=\"hidden\" name=\"pedir\" value=\"" . $row['id'] . "\">
-                      <input type=\"submit\" value=\"Pedir\">
-                      </form>";
+                    <input type=\"hidden\" name=\"pedir\" value=\"" . $row['id'] . "\">
+                    <input type=\"submit\" value=\"Pedir\">
+                    </form>";
             }
 
             echo "</div>";
         }
 
         var_dump($_SESSION);
-        ?>
+    ?>
     </div>
+
 </body>
 
 </html>
