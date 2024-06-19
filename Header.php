@@ -1,5 +1,5 @@
 <header class="header">
-    <img src="../imagens/LOGOTIPO.png" class="logo">
+    <img src="imagens/LOGOTIPO.png" class="logo">
     <nav class="navbar">
         <a href="#">Meus Pedidos</a>
         <a href="Home.php">Cardapios</a>
@@ -19,5 +19,5 @@
             <input type="submit" name="logout" value="Logout">
         </form>
     </nav>
-    <img src="../imagens/user2.png" class="user">
+    <img src="imagens/user2.png" class="user">
 </header>

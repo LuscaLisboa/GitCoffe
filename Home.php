@@ -50,6 +50,7 @@
         }
 
         var_dump($_SESSION);
+        require_once "footer.php";
         ?>
     </div>
 </body>
